@@ -6,6 +6,7 @@ import CharactersList from './components/CharactersList';
 
 import GlobalStyles from './styles/global';
 import Footer from './components/Footer';
+import CharacterDetails from './components/CharacterDetails';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <main className="container">
         <Search />
         <CharactersList />
+        <CharacterDetails />
       </main>
       <Footer />
     </div>
