@@ -23,4 +23,9 @@ export default createGlobalStyle`
   :root {
     --white: #fff;
   }
+
+  .container {
+    margin: 2rem 0;
+    padding: 0 1.5rem;
+  }
 `;

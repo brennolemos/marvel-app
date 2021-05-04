@@ -1,14 +1,18 @@
 import React from 'react';
 
 import Header from './components/Header';
+import Search from './components/Search';
 import GlobalStyles from './styles/global';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <GlobalStyles />
       <Header />
-    </div>
+      <main className="container">
+        <Search />
+      </main>
+    </>
   );
 }
 
