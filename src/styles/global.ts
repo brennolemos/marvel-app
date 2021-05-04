@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
   :root {
     --white: #fff;
-    --gray: #f5f5f5;
+    --gray: #fafafa;
   }
 
   ul, li {

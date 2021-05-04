@@ -1,5 +1,6 @@
 import React from 'react';
 
+import CharactersListItem from '../CharactersListItem';
 import { fetchApi } from '../../services/api';
 import * as S from './CharactersList-styles';
 
@@ -42,13 +43,7 @@ const CharactersList = () => {
   return (
     <S.CharactersList>
       {data.map((character) => (
-        <li key={character.id}>
-          <img
-            src={`${character.thumbnail.path}/standard_fantastic.${character.thumbnail.extension}`}
-            alt=""
-          />
-          <p>{character.name}</p>
-        </li>
+        <CharactersListItem key={character.id} character={character} />
       ))}
     </S.CharactersList>
   );
