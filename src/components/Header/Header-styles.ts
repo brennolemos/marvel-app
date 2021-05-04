@@ -7,6 +7,7 @@ export const Header = styled.header`
   justify-content: space-between;
   padding: 1rem 1.5rem;
   box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
+  position: relative;
 
   a {
     transition: all 0.3s ease;

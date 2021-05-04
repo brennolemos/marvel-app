@@ -1,11 +1,13 @@
 import React from 'react';
 
 import { fetchApi } from '../../services/api';
+import * as S from './CharactersList-styles';
 
 type Character = {
   id: number;
   name: string;
   thumbnail: {
+    extension: string;
     path: string;
   };
 };
@@ -38,11 +40,17 @@ const CharactersList = () => {
   if (data === null) return null;
 
   return (
-    <ul>
+    <S.CharactersList>
       {data.map((character) => (
-        <li>{character.name}</li>
+        <li key={character.id}>
+          <img
+            src={`${character.thumbnail.path}/standard_fantastic.${character.thumbnail.extension}`}
+            alt=""
+          />
+          <p>{character.name}</p>
+        </li>
       ))}
-    </ul>
+    </S.CharactersList>
   );
 };
 

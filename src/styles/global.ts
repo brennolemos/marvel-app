@@ -2,9 +2,28 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
-    margin: 0%;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  :root {
+    --white: #fff;
+    --gray: #f5f5f5;
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  } 
+
+  li {
+    list-style: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
   }
 
   html, body, #root {
@@ -20,12 +39,8 @@ export default createGlobalStyle`
     sans-serif;
   }
 
-  :root {
-    --white: #fff;
-  }
-
   .container {
-    margin: 2rem 0;
-    padding: 0 1.5rem;
+    padding: 2rem 1.5rem;
+    background-color: var(--gray);
   }
 `;
