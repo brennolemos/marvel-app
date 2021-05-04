@@ -4,6 +4,8 @@ import CharactersListItem from '../CharactersListItem';
 import { fetchApi } from '../../services/api';
 import * as S from './CharactersList-styles';
 
+import Loading from '../Loading';
+
 type Character = {
   id: number;
   name: string;
@@ -36,7 +38,7 @@ const CharactersList = () => {
     fetchData();
   }, []);
 
-  if (loading) return <div>Carregando...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>Erro</div>;
   if (data === null) return null;
 
