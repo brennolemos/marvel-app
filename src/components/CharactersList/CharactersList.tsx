@@ -5,6 +5,7 @@ import { fetchApi } from '../../services/api';
 import * as S from './CharactersList-styles';
 
 import Loading from '../Loading';
+import Error from '../Error';
 
 type Character = {
   id: number;
@@ -18,7 +19,7 @@ type Character = {
 const CharactersList = () => {
   const [data, setData] = React.useState<Character[] | null>(null);
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(null);
+  const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -29,8 +30,8 @@ const CharactersList = () => {
         console.log(data.data.results);
         setData(data.data.results);
       } catch (err) {
-        console.log(err);
-        setError(err);
+        console.log(err.message);
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -39,7 +40,7 @@ const CharactersList = () => {
   }, []);
 
   if (loading) return <Loading />;
-  if (error) return <div>Erro</div>;
+  if (error) return <Error error={error} />;
   if (data === null) return null;
 
   return (
