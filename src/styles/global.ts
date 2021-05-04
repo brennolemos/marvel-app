@@ -39,8 +39,15 @@ export default createGlobalStyle`
     sans-serif;
   }
 
+  .App {
+    display: flex;
+min-height: 100vh;
+flex-direction: column;
+  }
+
   .container {
     padding: 2rem 1.5rem;
     background-color: var(--gray);
+    flex: 1 1;
   }
 `;

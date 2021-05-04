@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
+    <div className="App">
       <GlobalStyles />
       <Header />
       <main className="container">
@@ -17,7 +17,7 @@ function App() {
         <CharactersList />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
