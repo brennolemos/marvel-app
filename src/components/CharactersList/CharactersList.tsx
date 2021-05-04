@@ -1,9 +1,17 @@
 import React from 'react';
 
-import api from '../../services/api';
+import { fetchApi } from '../../services/api';
+
+type Character = {
+  id: number;
+  name: string;
+  thumbnail: {
+    path: string;
+  };
+};
 
 const CharactersList = () => {
-  const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState<Character[] | null>(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
 
@@ -12,10 +20,12 @@ const CharactersList = () => {
       try {
         setLoading(true);
         setError(null);
-        const { data } = await api.get('/');
-        setData(data);
+        const { data } = await fetchApi('characters');
+        console.log(data.data.results);
+        setData(data.data.results);
       } catch (err) {
-        setError(err.response.status);
+        console.log(err);
+        setError(err);
       } finally {
         setLoading(false);
       }
@@ -27,7 +37,13 @@ const CharactersList = () => {
   if (error) return <div>Erro</div>;
   if (data === null) return null;
 
-  return <h1>CharactersList</h1>;
+  return (
+    <ul>
+      {data.map((character) => (
+        <li>{character.name}</li>
+      ))}
+    </ul>
+  );
 };
 
 export default CharactersList;
