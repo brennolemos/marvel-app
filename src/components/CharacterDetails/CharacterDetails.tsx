@@ -79,34 +79,38 @@ const CharacterDetails = () => {
       </S.InfosWrapper>
 
       <S.ListsWrapper>
-        <S.List>
-          <h2>Comics</h2>
-          <ul>
-            {data.comics.items.map((item, index) => (
-              <li key={index}>{item.name}</li>
-            ))}
-          </ul>
-        </S.List>
+        {data.comics.items.length > 0 && (
+          <S.List>
+            <h2>Comics</h2>
+            <ul>
+              {data.comics.items.map((item, index) => (
+                <li key={index}>{item.name}</li>
+              ))}
+            </ul>
+          </S.List>
+        )}
 
-        <S.List>
-          <h2>Series</h2>
+        {data.series.items.length > 0 && (
+          <S.List>
+            <h2>Series</h2>
+            <ul>
+              {data.series.items.map((item, index) => (
+                <li key={index}>{item.name}</li>
+              ))}
+            </ul>
+          </S.List>
+        )}
 
-          <ul>
-            {data.series.items.map((item, index) => (
-              <li key={index}>{item.name}</li>
-            ))}
-          </ul>
-        </S.List>
-
-        <S.List>
-          <h2>Stories</h2>
-
-          <ul>
-            {data.stories.items.map((item, index) => (
-              <li key={index}>{item.name}</li>
-            ))}
-          </ul>
-        </S.List>
+        {data.stories.items.length > 0 && (
+          <S.List>
+            <h2>Stories</h2>
+            <ul>
+              {data.stories.items.map((item, index) => (
+                <li key={index}>{item.name}</li>
+              ))}
+            </ul>
+          </S.List>
+        )}
       </S.ListsWrapper>
 
       <NavLink exact to="/">
