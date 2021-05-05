@@ -9,7 +9,8 @@ import GlobalStyles from './styles/global';
 import Footer from './components/Footer';
 import CharacterDetails from './components/CharacterDetails';
 
-function App() {
+const App = () => {
+  const [name, setName] = React.useState('');
   return (
     <HashRouter basename="/">
       <div className="App">
@@ -17,8 +18,8 @@ function App() {
         <Header />
         <main className="container">
           <Route path={'/'} exact>
-            <Search />
-            <CharactersList />
+            <Search name={name} setName={setName} />
+            <CharactersList name={name} setName={setName} />
           </Route>
           <Route path={'/:id'} component={CharacterDetails} />
         </main>
@@ -26,6 +27,6 @@ function App() {
       </div>
     </HashRouter>
   );
-}
+};
 
 export default App;

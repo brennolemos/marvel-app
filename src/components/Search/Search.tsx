@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 
 import * as S from './Search-styles';
 
-const Search = () => {
-  const [name, setName] = React.useState('');
+type SearchProps = {
+  name: string;
+  setName: (name: string) => void;
+};
 
-  const handleSubmit = (event: any) => {
+const Search = ({ name, setName }: SearchProps) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
   };
 
