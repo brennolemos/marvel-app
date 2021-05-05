@@ -18,10 +18,10 @@ type Character = {
 
 type SearchProps = {
   name: string;
-  setName: (name: string) => void;
+  offset: number;
 };
 
-const CharactersList = ({ name }: SearchProps) => {
+const CharactersList = ({ name, offset }: SearchProps) => {
   const [data, setData] = React.useState<Character[] | null>(null);
   const [filteredData, setFilteredData] = React.useState<Character[] | null>(
     null,
@@ -29,22 +29,22 @@ const CharactersList = ({ name }: SearchProps) => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const { data } = await fetchApi('characters', offset);
+      console.log(data.data.results);
+      setFilteredData(data.data.results);
+      setData(data.data.results);
+    } catch (err) {
+      console.log(err.message);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const { data } = await fetchApi('characters');
-        console.log(data.data.results);
-        setFilteredData(data.data.results);
-        setData(data.data.results);
-      } catch (err) {
-        console.log(err.message);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchData();
   }, []);
 
@@ -64,11 +64,9 @@ const CharactersList = ({ name }: SearchProps) => {
 
   return (
     <S.CharactersList>
-      {filteredData.length
-        ? filteredData.map((character) => (
-            <CharactersListItem key={character.id} character={character} />
-          ))
-        : 'Não há itens correspondentes com a pesquisa'}
+      {filteredData.map((character) => (
+        <CharactersListItem key={character.id} character={character} />
+      ))}
     </S.CharactersList>
   );
 };

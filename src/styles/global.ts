@@ -26,9 +26,6 @@ export default createGlobalStyle`
     max-width: 100%;
   }
 
-  html, body, #root {
-    height: 100%;
-  }
 
   *, button, input {
     border: 0;
