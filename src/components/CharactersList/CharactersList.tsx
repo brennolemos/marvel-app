@@ -8,7 +8,7 @@ import Loading from '../Loading';
 import Error from '../Error';
 
 type Character = {
-  id: number;
+  id: string;
   name: string;
   thumbnail: {
     extension: string;

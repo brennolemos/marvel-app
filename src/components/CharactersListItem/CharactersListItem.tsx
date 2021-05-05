@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { fetchApi } from '../../services/api';
 import * as S from './CharactersListItem-styles';
@@ -8,7 +9,7 @@ type CharacterProps = {
 };
 
 type Character = {
-  id: number;
+  id: string;
   name: string;
   thumbnail: {
     extension: string;
@@ -18,13 +19,15 @@ type Character = {
 
 const CharactersListItem = ({ character }: CharacterProps) => {
   return (
-    <S.CharactersListItem>
-      <img
-        src={`${character.thumbnail.path}/standard_fantastic.${character.thumbnail.extension}`}
-        alt=""
-      />
-      <S.Content>{character.name}</S.Content>
-    </S.CharactersListItem>
+    <NavLink to={`${character.id}`}>
+      <S.CharactersListItem>
+        <img
+          src={`${character.thumbnail.path}/standard_fantastic.${character.thumbnail.extension}`}
+          alt=""
+        />
+        <S.Content>{character.name}</S.Content>
+      </S.CharactersListItem>
+    </NavLink>
   );
 };
 

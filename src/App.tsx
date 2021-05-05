@@ -1,4 +1,5 @@
 import React from 'react';
+import { HashRouter, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Search from './components/Search';
@@ -10,16 +11,20 @@ import CharacterDetails from './components/CharacterDetails';
 
 function App() {
   return (
-    <div className="App">
-      <GlobalStyles />
-      <Header />
-      <main className="container">
-        <Search />
-        <CharactersList />
-        <CharacterDetails />
-      </main>
-      <Footer />
-    </div>
+    <HashRouter basename="/">
+      <div className="App">
+        <GlobalStyles />
+        <Header />
+        <main className="container">
+          <Route path={'/'} exact>
+            <Search />
+            <CharactersList />
+          </Route>
+          <Route path={'/:id'} component={CharacterDetails} />
+        </main>
+        <Footer />
+      </div>
+    </HashRouter>
   );
 }
 
