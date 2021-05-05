@@ -34,20 +34,25 @@ export default createGlobalStyle`
     border: 0;
     outline: 0;
 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    font-family: 'Oxygen', sans-serif;
+    color: #202020;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .App {
     display: flex;
-min-height: 100vh;
-flex-direction: column;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: var(--gray);
   }
 
   .container {
     padding: 2rem 1.5rem;
-    background-color: var(--gray);
     flex: 1 1;
+    max-width: 75rem;
+    margin: 0 auto;
   }
 `;

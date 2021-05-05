@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { fetchApi } from '../../services/api';
 import * as S from './CharactersListItem-styles';
 
 type CharacterProps = {

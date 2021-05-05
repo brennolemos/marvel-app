@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { fetchApi } from '../../services/api';
 import Loading from '../Loading';
@@ -64,35 +65,54 @@ const CharacterDetails = () => {
   if (data === null) return null;
 
   return (
-    <S.Wrapper>
-      <div>
-        <h1>Name: {data.name}</h1>
-        <p>Description: {data.description}</p>
-        <ul>
-          {data.comics.items.map((item) => (
-            <li>{item.name}</li>
-          ))}
-        </ul>
+    <>
+      <S.InfosWrapper>
+        <S.Image
+          style={{
+            backgroundImage: `url('${data.thumbnail.path}.${data.thumbnail.extension}')`,
+          }}
+        />
+        <S.Content>
+          <h1>{data.name}</h1>
+          <p>{data.description}</p>
+        </S.Content>
+      </S.InfosWrapper>
 
-        <ul>
-          {data.series.items.map((item) => (
-            <li>{item.name}</li>
-          ))}
-        </ul>
+      <S.ListsWrapper>
+        <S.List>
+          <h2>Comics</h2>
+          <ul>
+            {data.comics.items.map((item, index) => (
+              <li key={index}>{item.name}</li>
+            ))}
+          </ul>
+        </S.List>
 
-        <ul>
-          {data.stories.items.map((item) => (
-            <li>{item.name}</li>
-          ))}
-        </ul>
-      </div>
+        <S.List>
+          <h2>Series</h2>
 
-      <S.Image
-        style={{
-          backgroundImage: `url('${data.thumbnail.path}.${data.thumbnail.extension}')`,
-        }}
-      ></S.Image>
-    </S.Wrapper>
+          <ul>
+            {data.series.items.map((item, index) => (
+              <li key={index}>{item.name}</li>
+            ))}
+          </ul>
+        </S.List>
+
+        <S.List>
+          <h2>Stories</h2>
+
+          <ul>
+            {data.stories.items.map((item, index) => (
+              <li key={index}>{item.name}</li>
+            ))}
+          </ul>
+        </S.List>
+      </S.ListsWrapper>
+
+      <NavLink exact to="/">
+        Voltar
+      </NavLink>
+    </>
   );
 };
 
