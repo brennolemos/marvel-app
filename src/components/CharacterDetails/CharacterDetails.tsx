@@ -111,9 +111,9 @@ const CharacterDetails = () => {
         )}
       </S.ListsWrapper>
 
-      <NavLink exact to="/">
-        Voltar
-      </NavLink>
+      <S.Button exact to="/">
+        Go Back
+      </S.Button>
     </>
   );
 };

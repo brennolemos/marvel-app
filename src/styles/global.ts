@@ -14,6 +14,7 @@ export default createGlobalStyle`
     --gray-20: #202020;
 
     --red: #721c24;
+    --marvel-red: #ED1D24;
     --pink: #f8d7da;
   }
 

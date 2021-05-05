@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const InfosWrapper = styled.section`
   display: grid;
@@ -77,5 +78,17 @@ export const List = styled.div`
     &:last-child {
       border: none;
     }
+  }
+`;
+
+export const Button = styled(NavLink)`
+  background-color: var(--marvel-red);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
   }
 `;

@@ -18,7 +18,7 @@ const Search = ({ name, setName }: SearchProps) => {
         name="search"
         id="search"
         type="text"
-        placeholder="Buscar..."
+        placeholder="Input search text..."
         required
         value={name}
         onChange={({ target }) => setName(target.value)}
