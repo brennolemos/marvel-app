@@ -55,4 +55,16 @@ export default createGlobalStyle`
     max-width: 75rem;
     margin: 0 auto;
   }
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    html {
+      font-size: 87.5%;
+    }
+  }
 `;
