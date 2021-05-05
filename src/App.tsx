@@ -18,7 +18,6 @@ const App = () => {
     const infiniteScroll: EventListener = (event: Event) => {
       const scroll = window.scrollY;
       const height = document.body.offsetHeight - window.innerHeight;
-      console.log(scroll, document.body.offsetHeight, window.innerHeight);
       if (scroll > height * 0.75 && !wait) {
         setPages((pages) => [...pages, pages.length * 20]);
         wait = true;

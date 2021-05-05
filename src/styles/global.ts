@@ -9,7 +9,12 @@ export default createGlobalStyle`
 
   :root {
     --white: #fff;
-    --gray: #fafafa;
+    --gray-fa: #fafafa;
+    --gray-e: #eee;
+    --gray-20: #202020;
+
+    --red: #721c24;
+    --pink: #f8d7da;
   }
 
   ul, li {
@@ -32,7 +37,7 @@ export default createGlobalStyle`
     outline: 0;
 
     font-family: 'Oxygen', sans-serif;
-    color: #202020;
+    color: var(--gray-20);
   }
 
   a {
@@ -43,7 +48,7 @@ export default createGlobalStyle`
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: var(--gray);
+    background-color: var(--gray-fa);
   }
 
   .container {

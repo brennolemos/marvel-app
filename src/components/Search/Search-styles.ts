@@ -11,7 +11,7 @@ export const Form = styled.form`
 
 export const Search = styled.input`
   border-radius: 0.25rem;
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
   transition: all 0.3s ease;
@@ -29,8 +29,8 @@ export const Search = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 62px;
-  height: 62px;
+  width: 4rem;
+  height: 4rem;
   background: url(${icon}) no-repeat center center;
   text-indent: -150px;
   border: none;

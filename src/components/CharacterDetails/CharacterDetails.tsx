@@ -48,10 +48,8 @@ const CharacterDetails = () => {
         setLoading(true);
         setError(null);
         const { data } = await fetchApi(`characters/${id}`);
-        console.log(data.data.results[0]);
         setData(data.data.results[0]);
       } catch (err) {
-        console.log(err.message);
         setError(err.message);
       } finally {
         setLoading(false);

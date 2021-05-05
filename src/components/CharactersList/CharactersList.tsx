@@ -34,11 +34,9 @@ const CharactersList = ({ name, offset }: SearchProps) => {
       setLoading(true);
       setError(null);
       const { data } = await fetchApi('characters', offset);
-      console.log(data.data.results);
       setFilteredData(data.data.results);
       setData(data.data.results);
     } catch (err) {
-      console.log(err.message);
       setError(err.message);
     } finally {
       setLoading(false);
